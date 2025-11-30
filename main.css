@@ -13,7 +13,7 @@
 
 .body {
     font-family: 'Roboto', sans-serif;
-    color: var(--color);
+    color: var(--hello);
 }
 
 .info {
@@ -104,7 +104,7 @@
     border: 1px solid #F0F0F0;
     border-radius: 6px;
     padding: 9px 16px;
-    color: var(--color);
+    color: var(--hello);
     cursor: pointer;
     transition-property: background-color, color;
     transition-duration: .3s;
@@ -141,14 +141,117 @@
     width: 100%;
     height: 100%;
     backdrop-filter: blur(10px) brightness(0.6);
+    justify-content: end;
+    display: none; /*в начале не показывается на странице*/
+    opacity: 0; /*в начале не показывается на странице*/
+    transition: opacity .3s; /*в начале не показывается на странице*/
+}
+
+.popup-filter--show {
+    display: flex; /*появляется попап на странице*/
+}
+
+.popup-filter--active {
+    opacity: 1; /*появляется попап на странице*/
 }
 
 .popup-filter__body {
     background-color: white;
     width: 520px;
     height: 100%;
-    position: absolute;
-    right: 0;
+    overflow: auto;
+    /* right: 0; */
+    /* position: absolute; */
+}
+
+.popup-filter__content {
+    padding: 32px 20px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.popup-filter__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.popup-filter__header h2 {
+    font-family: Inter, Courier, monospace;
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.popup-filter__groups {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.popup-filter__group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.popup-filter__group h4 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    color: #A5A5A5;
+    font-weight: 400;
+}
+
+.popup-filter__checkbox {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.popup-filter__checkbox button,
+.popup-filter__buttons button
+ {
+    background-color: #fff;
+    color: var(--hello);
+    padding: 11px 16px;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    border: 1px solid #F0F0F0;
+    border-radius: 6px;
+    cursor: pointer;
+    transition-duration: .3s;
+    transition-property: background-color, border, color;
+}
+
+.popup-filter__checkbox button:hover,
+.popup-filter__buttons button:hover,
+.popup-filter__buttons button.hover
+ {
+    color: #FF7010;
+    border: 1px solid #FF7010;
+}
+
+.popup-filter__checkbox button.active,
+.popup-filter__buttons button.active
+{
+    background-color: #FF7010;
+    color: #fff;
+    border: 1px solid #FF7010;
+}
+
+.popup-filter__buttons {
+    display: flex;
+    gap: 20px;
+    padding: 12px 20px;
+    border-top: 1px solid #F0F0F0;
+}
+
+.popup-filter__buttons button {
+    flex-grow: 1;
+}
+
+.popup-filter__close {
+    cursor: pointer;
 }
 
 /* End PopUp */

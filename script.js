@@ -27,3 +27,30 @@ document.querySelector('.info__link').addEventListener('click' , function () {
     this.textContent = buttonText2; 
     buttonText2 = buttonText;
 })
+
+//ждем полной загрузки страницы
+document.addEventListener('DOMContentLoaded', function () {
+    const popupFilter = document.querySelector('.popup-filter');
+
+    if (popupFilter) {
+        const buttonPopupClose = document.querySelector('.popup-filter__close');
+        buttonPopup.addEventListener('click', function () {
+            const popupFilter = document.querySelector('.popup-filter');
+            if (popupFilter) {
+                document.body.classList.add('no-scroll');
+                popupFilter.classList.add('popup-filter--show')
+                setTimeout(function() {
+                    popupFilter.classList.add('popup-filter--active')
+                }, 10);
+            }
+        })
+    }
+
+    const buttonPopupClose = document.querySelector('.popup-filter__close');
+    if (buttonPopupClose) {
+        buttonPopupClose.addEventListener('click', function () {
+
+        })
+    }
+
+}) 
